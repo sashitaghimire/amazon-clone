@@ -9,7 +9,7 @@ import { useStateValue } from './StateProvider';
 import {auth} from './firebase';
 
 function App() {
-  const[{basket}, dispatch] = useStateValue();
+  const[{user}, dispatch] = useStateValue();
   
 
   useEffect(()=>{
@@ -32,7 +32,6 @@ function App() {
     return ()=>{
       unsubscribe();
     }
-
 
   },[])
   return (

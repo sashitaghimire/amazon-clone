@@ -23,8 +23,12 @@ function Login() {
         //some fancy firebase login...
         auth.createUserWithEmailAndPassword(email, password)
             .then(auth => {
+                if(auth){
+                    history.push('/')
+                }
+
             })
-            .catch(event => alert(event.message))
+            .catch(error => alert(error.message))
     }
 
     return (

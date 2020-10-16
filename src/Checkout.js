@@ -5,13 +5,18 @@ import Subtotal from './Subtotal';
 import './Checkout.css';
 
 function Checkout() {
-    const [{basket}] = useStateValue();
+    const [{basket,user},dispatch] = useStateValue();
        return (
         <div className="checkout">
             <div className="checkout__left">
             <img className="checkout__ad"
             src="https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._C8423492668_.jpg"
             alt="ad"/>
+            <div>
+                <h3>Hello, {user?.email}</h3>
+            </div>
+
+
 
             {basket?.length  === 0 ?(
                 <div>
@@ -44,4 +49,4 @@ function Checkout() {
     )
 }
 
-export default Checkout
+export default Checkout;

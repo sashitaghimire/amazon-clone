@@ -11,24 +11,26 @@ export const getBasketTotal = (basket) =>
 const reducer = (state, action) =>{
     console.log(action);
     switch(action.type){
-        case "SET_USER":
-            return {
-                ...state,
-                user:action.user
-            }
+        
         case 'ADD_TO_BASKET':
              return{
                  ...state,
                  basket: [...state.basket, action.item]
-             };
-             break;
+             }
+        case 'EMPTY_BASKET':
+            return{
+                ...state,
+                basket:[]
+            };
+
         
         case 'REMOVE_FROM_BASKET':
+            
+
+            const index = state.basket.findIndex((basketItem)=>basketItem.id === action.id);
             let newBasket = [...state.basket];
 
-            const index = state.basket.findIndex((basketItem)=>basketItem.id ===AccessTimeOutlined.id);
-
-            if(index>= 0 ){
+            if(index >= 0 ){
                 //item exits in basket remove it
                 newBasket.splice(index,1);
             }
@@ -36,8 +38,14 @@ const reducer = (state, action) =>{
                 console.warn(`Can't remove product (id: ${action.id}) as its not in basket.`)
             }
 
-            return{...state,basket:newBasket}
-        break;
+            return{...state, basket:newBasket}
+
+            case "SET_USER":
+                return {
+                    ...state,
+                    user:action.user
+                };
+        
         
 
         default:
