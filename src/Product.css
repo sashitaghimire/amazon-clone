@@ -9,6 +9,10 @@
     width: 100%;
     background-color: white;
     z-index: 1;
+    transition: tranform 450ms;
+}
+.product:hover{
+    transform:scale(1.05);
 }
 .product__price{
     margin-top:5px;
