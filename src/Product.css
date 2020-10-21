@@ -26,6 +26,7 @@
 .product__rating{
     display: flex;
     margin-left: 10px;
+    color: #f0c14b;
 }
 .product >img{
     width: 100%;

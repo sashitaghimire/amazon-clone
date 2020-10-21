@@ -1,6 +1,7 @@
 import React from 'react'
 import './CheckoutProduct.css';
 import {useStateValue} from './StateProvider';
+import StarRateIcon from '@material-ui/icons/StarRate';
 
 function CheckoutProduct({ id, title, image, price, rating }) {
     const [{ basket }, dispatch] = useStateValue();
@@ -25,9 +26,11 @@ function CheckoutProduct({ id, title, image, price, rating }) {
 
                 <div className="checkoutProduct__rating">
                 {
-                    Array(rating).fill().map((_)=>(
-                        <p>⭐</p>
-                    ))
+                   Array(rating)
+                   .fill()
+                   .map((_, index) => (
+                       <StarRateIcon key={index} />
+                   ))
                 }
             </div>
     
